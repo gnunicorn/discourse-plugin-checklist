@@ -2,6 +2,23 @@
 
 Adds simple helpers to build (interactive) checklists, rendering "[]", "[*]" and "[x]" into pretty UI parts you can interact with.
 
+## Details
+
+Here is a little screenshot of the plugin in action:
+
+![Preview screenshot](https://raw.github.com/ligthyear/discourse-plugin-checklist/master/docs/preview-example.png)
+
+On top, if there are our checklist-items on the post and the current user is able to edit the post, they are interactively able to toggle the checkbox from the post view by clicking the box:
+
+![Interactive before](https://raw.github.com/ligthyear/discourse-plugin-checklist/master/docs/live-click-before.png)
+
+![Interactive waiting](https://raw.github.com/ligthyear/discourse-plugin-checklist/master/docs/live-click-waiting.png)
+
+![Interactive after](https://raw.github.com/ligthyear/discourse-plugin-checklist/master/docs/live-click-after.png)
+
+Which will be recorded as a new version of the post:
+
+![New version](https://raw.github.com/ligthyear/discourse-plugin-checklist/master/docs/new-version.png)
 
 ## Installation
 
@@ -10,7 +27,7 @@ Just two easy steps. From your main discourse do:
     cd plugins
     git clone https://github.com/ligthyear/discourse-plugin-checklist.git   # clone the repo here
     cd ..
-    RAILS_ENV=production rake assets:precompile 
+    RAILS_ENV=production rake assets:precompile
 
 Then restart your discourse and enjoy the fun on ever /user/*/activity-page.
 
@@ -18,12 +35,19 @@ Then restart your discourse and enjoy the fun on ever /user/*/activity-page.
 
  * 2014-03-05
    - initial version with prettified rendering
+   - allow interactive box-clicking updates
 
-## TODO:
+## TODO
 
 (in order of importance)
 
- * Make checkboxes interactive
+ * allow easy item "sorting" if the entries are in a list
+
+### other Limitations:
+
+ * While updating one item, you can't update another
+ * If you want to make multiple changes it creates multiple versions
+ * you can only toggle the default type
 
 ## Authors:
 Benjamin Kampmann <me @ create-build-execute . com>
