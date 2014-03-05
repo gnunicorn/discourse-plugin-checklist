@@ -35,7 +35,12 @@ span.chklst-box:before {
 span.chklst-box.checked:before {
 	content: "✔";
 }
+
 span.chklst-box.ballot:before {
 	content: "✘";
+}
+
+span.chklst-box.stroked:before {
+	content: "-";
 }
 CSS

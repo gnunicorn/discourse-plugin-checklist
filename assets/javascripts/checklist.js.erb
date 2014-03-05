@@ -19,6 +19,10 @@
     return ["span", {"class": "chklst-box ballot"}];
   });
 
+  Discourse.Dialect.inlineReplace("[-]", function(text){
+    return ["span", {"class": "chklst-box stroked"}];
+  });
+
   Discourse.Dialect.inlineReplace("[*]", function(text){
     return ["span", {"class": "chklst-box checked"}];
   });
