@@ -1,9 +1,11 @@
-# name: emoji
-# about: emoji support for Discourse
+# name: checklist
+# about: checklist support for Discourse
 # version: 0.1
-# authors: Sam Saffron, Robin Ward
+# authors: Benjamin Kampmann
 
-register_asset('javascripts/checklist.js.erb', :server_side)
+register_asset 'javascripts/checklist.js.erb', :server_side
+register_asset "javascripts/checklist_ui.js"
+
 # register_asset('stylesheets/checklist.css')
 
 # after_initialize do
