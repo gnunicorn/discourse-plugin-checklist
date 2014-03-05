@@ -1,0 +1,26 @@
+(function() {
+
+  Discourse.Dialect.inlineBetween({
+    between: "--",
+    emitter: function(contents){
+      return ["span", {"class": "chklst-stroked"}].concat(contents);
+    }
+  });
+
+  Discourse.Dialect.inlineReplace("[ ]", function(text, match, prev){
+    return ["span", {"class": "chklst-box"}];
+  });
+
+  Discourse.Dialect.inlineReplace("[]", function(text){
+    return ["span", {"class": "chklst-box"}];
+  });
+
+  Discourse.Dialect.inlineReplace("[x]", function(text){
+    return ["span", {"class": "chklst-box ballot"}];
+  });
+
+  Discourse.Dialect.inlineReplace("[*]", function(text){
+    return ["span", {"class": "chklst-box checked"}];
+  });
+
+}).call(this);
