@@ -3,39 +3,32 @@ Discourse.PostView.reopen({
 
     if (!this.post.can_edit) { return };
 
-    var boxes = $post.find(".chklst-box"),
+    var boxes = $post.find(".chcklst-box"),
         view = this;
 
     boxes.each(function(idx, val) {
       $(val).click(function(ev) {
         var elem = $(ev.currentTarget),
-            new_value = (elem.hasClass("checked") || elem.hasClass("ballot") || elem.hasClass("stroked")) ? "[ ]": "[*]",
+            new_value = elem.hasClass("checked") ? "[ ]": "[*]",
             poller = Discourse.Post.load(view.post.get("id"));
 
-        console.log(new_value);
+        elem.after('<i class="fa fa-spinner fa-spin"></i>');
+        elem.hide();
 
         poller.then(function(result) {
-          console.log(result);
-          var nth = -1;
-          var new_raw = result.raw.replace(/\[([ -x*]?)\]/g, function(match){
-              nth += 1;
-              if (nth === idx) {
-                return new_value;
-              } else {
-                return match;
-              }
-            });
+          var nth = -1, // make the first run go to index = 0
+              new_raw = result.raw.replace(/\[([\ \_\-\x\*]?)\]/g, function(match, args, offset) {
+                nth += 1;
+                return nth == idx ? new_value : match;
+              });
           view.post.setProperties({
             raw: new_raw,
             editReason: "change checkmark"
           });
           view.post.save(function(result) {
-            console.log(result);
             view.post.updateFromPost(result);
           });
         });
-        elem.after('<i class="fa fa-spinner fa-spin"></i>');
-        elem.hide();
       });
     });
 

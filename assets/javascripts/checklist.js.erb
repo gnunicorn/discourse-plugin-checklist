@@ -3,28 +3,33 @@
   Discourse.Dialect.inlineBetween({
     between: "--",
     emitter: function(contents){
-      return ["span", {"class": "chklst-stroked"}].concat(contents);
+      return ["span", {"class": "chcklst-stroked"}].concat(contents);
     }
   });
 
   Discourse.Dialect.inlineReplace("[ ]", function(text, match, prev){
-    return ["span", {"class": "chklst-box"}];
+    return ["span", {"class": "chcklst-box fa fa-square-o"}];
   });
 
   Discourse.Dialect.inlineReplace("[]", function(text){
-    return ["span", {"class": "chklst-box"}];
+    return ["span", {"class": "chcklst-box fa fa-square-o"}];
   });
 
-  Discourse.Dialect.inlineReplace("[x]", function(text){
-    return ["span", {"class": "chklst-box ballot"}];
+  Discourse.Dialect.inlineReplace("[_]", function(text, match, prev){
+    return ["span", {"class": "chcklst-box fa fa-square"}];
   });
 
   Discourse.Dialect.inlineReplace("[-]", function(text){
-    return ["span", {"class": "chklst-box stroked"}];
+    return ["span", {"class": "chcklst-box fa fa-minus-square-o"}];
+  });
+
+
+  Discourse.Dialect.inlineReplace("[x]", function(text){
+    return ["span", {"class": "chcklst-box checked fa fa-check-square"}];
   });
 
   Discourse.Dialect.inlineReplace("[*]", function(text){
-    return ["span", {"class": "chklst-box checked"}];
+    return ["span", {"class": "chcklst-box checked fa fa-check-square-o"}];
   });
 
 }).call(this);
