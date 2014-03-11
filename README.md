@@ -2,6 +2,8 @@
 
 Adds simple helpers to build (interactive) checklists, rendering "[]", "[*]" and "[x]" into pretty UI parts you can interact with.
 
+If you want to collaboratively edit a todo-list, you might want to check out [the Shared Edit Plugin](https://github.com/ligthyear/discourse-plugin-shared-edit) and install it, too. Both together allow for collaborative todo-list editing.
+
 ## Details
 
 Here is a little screenshot of the plugin in action:
@@ -32,6 +34,13 @@ Just two easy steps. From your main discourse do:
 Then restart your discourse and enjoy the fun on ever /user/*/activity-page.
 
 ## Changelog:
+
+ * 2014-03-11
+   - switching to [font-awesome](http://fontawesome.io) based rendering
+   - adding the new `[_]` option
+   - adding doc reference to shared-edits plugin
+   - fix issue when that updating after `[x]` or `[-]` wasn't possible
+   - this unfortunately is backwards incompatible, if checkboxes don't show up anymore, you need to re-save them to the database.
 
  * 2014-03-05
    - initial version with prettified rendering
