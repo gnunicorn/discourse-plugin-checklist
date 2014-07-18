@@ -32,4 +32,7 @@
     return ["span", {"class": "chcklst-box checked fa fa-check-square-o"}];
   });
 
+  Discourse.Markdown.whiteListTag('span', 'class', 'chcklst-stroked' );
+  Discourse.Markdown.whiteListTag('span', 'class', /^chcklst-.*$/ );
+
 }).call(this);
