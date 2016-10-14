@@ -1,5 +1,7 @@
 # Discourse Checklist Plugin
 
+**Update: This project is no longer actively maintained, please see [this project](https://github.com/cpradio/discourse-plugin-checklist) for a working Discourse checklist plugin alternative.**
+
 Adds simple helpers to build (interactive) checklists, rendering "[]", "[*]" and "[x]" into pretty UI parts you can interact with.
 
 If you want to collaboratively edit a todo-list, you might want to check out [the Shared Edit Plugin](https://github.com/ligthyear/discourse-plugin-shared-edit) and install it, too. Both together allow for collaborative todo-list editing.
